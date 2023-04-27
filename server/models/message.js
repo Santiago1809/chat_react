@@ -1,8 +1,8 @@
 import { Schema, model } from "mongoose";
 
 const messageSchema = new Schema({
-  message: String,
+  mensaje: String,
   from: String,
 });
 
-export default model("Message", messageSchema);
+export default model("Mensajes", messageSchema);

@@ -1,9 +1,9 @@
-import Message from "../models/message.js";
+import message from "../models/message";
 
-const controller = {
+export const controller = {
   save: (req, res) => {
-    const { message, from } = req.body.params;
-    const newMessage = new Message(message, from);
+    const { mensaje, from } = req.body.params;
+    const newMessage = new message(mensaje, from);
 
     newMessage.save((error, mensageStoraged) => {
       return error || !mensageStoraged
@@ -15,7 +15,7 @@ const controller = {
     });
   },
   getMessages: (req, res) => {
-    const query = Message.find({ $all });
+    const query = message.find({ $all });
     query.sort("-_id").exec((error, messages) => {
       return error
         ? res.status(400).send({ mensaje: "Error al obtener mensajes" })
